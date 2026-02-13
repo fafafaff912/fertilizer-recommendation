@@ -1,0 +1,19 @@
+# Создание
+mkdir fertilizer-recommendation && cd fertilizer-recommendation
+mkdir results data && touch results/.gitkeep
+
+# Скопировать файлы: README.md, requirements.txt, LICENSE,
+# .gitignore, train.py, evaluate.py, predict.py, notebook.ipynb
+
+# Git
+git init && git add .
+git commit -m "Fertilizer recommendation: LR vs RF vs XGBoost vs MLP + yield simulation"
+git remote add origin https://github.com/USER/fertilizer-recommendation.git
+git push -u origin main
+
+# Запуск
+pip install -r requirements.txt
+python train.py --samples 10000 --epochs 200
+python evaluate.py
+python predict.py --crop wheat --temperature 25 --soil_N 30 --soil_P 20 --soil_K 25
+python predict.py --interactive
